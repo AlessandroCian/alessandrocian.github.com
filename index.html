@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AR</title>
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <body style="margin : 0px; overflow: hidden;">
+  <body>
     <a-scene embedded arjs>
-      <a-marker-camera preset='custom' type='pattern' url='cocai_pattern_2.patt'>
-      	<a-box position='0 0.5 0' material='opacity: 0.8' rotation="0 0 0" color="#006ff9" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-box>
+      <a-marker-camera
+        preset="custom"
+        type="pattern"
+        url="cocai_pattern_2.patt"
+      >
+        <a-box
+          position="0 0.5 0"
+          material="opacity: 0.8"
+          rotation="0 0 0"
+          color="#006ff9"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+        ></a-box>
       </a-marker-camera>
       <a-entity camera></a-entity>
     </a-scene>
