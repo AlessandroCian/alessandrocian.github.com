@@ -44,6 +44,8 @@ window.addEventListener("arjs-video-loaded", () => {
     });
   });
 
+  //handTrack.stopVideo(video);
+
   const runDetection = () => {
     model.detect(video).then((predictions) => {
       console.log(predictions);
