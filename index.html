@@ -8,23 +8,47 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <!--handtrack cdn-->
+  <script src="https://cdn.jsdelivr.net/npm/handtrackjs@0.1.5/dist/handtrack.min.js"></script>
   <script type="text/javascript" src="script.js" defer></script>
   <body>
-    <a-scene embedded arjs>
-      <a-marker-camera
+    <a-scene
+      id="scene"
+      embedded
+      arjs
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+    >
+      <!--...artoolkit-->
+      <!--<a-amerker-camera>-->
+      <a-marker
+        id="marker"
         preset="custom"
         type="pattern"
         url="assets/cocai_pattern_2.patt"
       >
         <a-box
-          position="0 0.5 0"
-          material="opacity: 0.8"
+          id="box"
+          material="opacity:0.2; metalness:0.2;"
           rotation="0 0 0"
-          color="#006ff9"
-          animation="property: rotation; to: 0 360 0; loop: true; dur: 1000"
-        ></a-box>
-      </a-marker-camera>
-      <a-entity camera></a-entity>
+          scale="2 2 2"
+          position="0 0.5 0"
+          color="#ffb81b"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+        >
+          <a-box id="border" material="opacity:1; wireframe:true">
+            <!--
+            <a-sphere
+              radius="0.2"
+              color="#ff0000"
+              material="opacity:0.5"
+              animation="property: scale; to: 2 2 2; dir:alternate; loop: true; dur: 1000"
+            ></a-sphere>
+            -->
+          </a-box>
+        </a-box>
+      </a-marker>
+      <a-entity camera id="camera"></a-entity>
     </a-scene>
   </body>
 </html>
