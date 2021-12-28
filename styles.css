@@ -10,3 +10,15 @@ body {
   transform: rotateY(180deg);
 }
 */
+
+#btn {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  z-index: 10;
+  color: whitesmoke;
+  background-color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+}

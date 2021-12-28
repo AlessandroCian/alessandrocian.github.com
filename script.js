@@ -10,9 +10,9 @@ const defaultParams = {
   iouThreshold: 0.2,
   scoreThreshold: 0.6,
   modelType: "ssd320fpnlite",
-  modelSize: "large",
+  modelSize: "small", //large
   bboxLineWidth: "2",
-  fontSize: 17,
+  fontSize: 16,
 };
 
 window.addEventListener("arjs-video-loaded", () => {
@@ -27,17 +27,21 @@ window.addEventListener("arjs-video-loaded", () => {
     model = loadedModel;
   });
 
-  handTrack.startVideo(video).then((status) => {
-    if (status) {
-      navigator.mediaDevices.getUserMedia({
-        video: { facingMode: "environment" },
-      });
-      console.log(status);
-      //runDetection();
-      setInterval(() => {
-        runDetection();
-      }, 1000);
-    }
+  const btn = document.getElementById("btn");
+
+  btn.addEventListener("click", () => {
+    handTrack.startVideo(video).then((status) => {
+      if (status) {
+        navigator.mediaDevices.getUserMedia({
+          video: { facingMode: "environment" },
+        });
+        console.log(status);
+        //runDetection();
+        setInterval(() => {
+          runDetection();
+        }, 1000);
+      }
+    });
   });
 
   const runDetection = () => {
