@@ -2,8 +2,9 @@ console.log("Hello AR!");
 
 const box = document.getElementById("box");
 
+/*
 const defaultParams = {
-  flipHorizontal: false,
+  flipHorizontal: true,
   outputStride: 16,
   imageScaleFactor: 1,
   maxNumBoxes: 20,
@@ -56,6 +57,8 @@ window.addEventListener("arjs-video-loaded", () => {
     });
   };
 });
+
+*/
 
 /* ******************************************************************************************* */
 
