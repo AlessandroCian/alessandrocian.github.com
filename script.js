@@ -2,7 +2,6 @@ console.log("Hello AR!");
 
 const box = document.getElementById("box");
 
-/*
 const defaultParams = {
   flipHorizontal: true,
   outputStride: 16,
@@ -57,8 +56,6 @@ window.addEventListener("arjs-video-loaded", () => {
     });
   };
 });
-
-*/
 
 /* ******************************************************************************************* */
 
