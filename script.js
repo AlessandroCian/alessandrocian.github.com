@@ -1,5 +1,7 @@
 console.log("Hello AR!");
 
+const box = document.getElementById("box");
+
 const defaultParams = {
   flipHorizontal: false,
   outputStride: 16,
@@ -17,7 +19,7 @@ window.addEventListener("arjs-video-loaded", () => {
   console.log("arjs video loaded");
   const video = document.getElementById("arjs-video");
   const canvas = document.querySelector(".a-canvas");
-  //const context = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d");
 
   let model;
 
@@ -39,8 +41,16 @@ window.addEventListener("arjs-video-loaded", () => {
   const runDetection = () => {
     model.detect(video).then((predictions) => {
       console.log(predictions);
-      //model.renderPredictions(predictions, canvas, context, video);
+      //model.renderPredictions(predictions, canvas, ctx, video);
       //window.requestAnimationFrame(runDetection);
+      if (predictions != "") {
+        console.log(predictions[0].label); // bbox[x, y, width, height]
+        if (predictions[0].label == "open") {
+          box.setAttribute("color", "#ff0000");
+        } else if (predictions[0].label == "closed") {
+          box.setAttribute("color", "#00ff00");
+        }
+      }
     });
   };
 });
@@ -48,10 +58,6 @@ window.addEventListener("arjs-video-loaded", () => {
 /* ******************************************************************************************* */
 
 window.addEventListener("load", () => {
-  const box = document.getElementById("box");
-  const border = document.getElementById("border");
-
-  const scene = document.getElementById("scene");
   const camera = document.getElementById("camera");
   const marker = document.getElementById("marker");
 
@@ -77,16 +83,14 @@ window.addEventListener("load", () => {
     clearInterval(check);
   });
 
-  box.addEventListener("collide", function (evt) {
-    console.log("This A-Frame entity collided with another entity!");
-  });
-
+  /*
   setTimeout(() => {
     box.setAttribute(
       "animation__2",
       "property: color; to: #006ff9; dur: 2000; easing: linear; loop:false"
     );
   }, 10000);
+  */
 });
 
 /* ******************************************************************************************* */
