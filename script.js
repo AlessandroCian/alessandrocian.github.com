@@ -29,7 +29,9 @@ window.addEventListener("arjs-video-loaded", () => {
 
   handTrack.startVideo(video).then((status) => {
     if (status) {
-      navigator.mediaDevices.getUserMedia({ video: true });
+      navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "environment" },
+      });
       console.log(status);
       //runDetection();
       setInterval(() => {
