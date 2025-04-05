@@ -1,54 +1,45 @@
+<!DOCTYPE html>
 <html lang="en">
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AR</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <!-- we import arjs version without NFT but with marker + location based support -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <!--handtrack cdn-->
-  <script src="https://cdn.jsdelivr.net/npm/handtrackjs@0.1.5/dist/handtrack.min.js"></script>
-  <script type="text/javascript" src="script.js" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>standupfordemocracy</title>
+    <style>
+      body {
+        padding: 1rem;
+        font-family: "Courier New", Courier, monospace;
+      }
+      h1 {
+        color: red;
+      }
+    </style>
+  </head>
   <body>
-    <button id="btn">Start Video</button>
-    <a-scene
-      id="scene"
-      embedded
-      arjs
-      vr-mode-ui="enabled: false;"
-      renderer="logarithmicDepthBuffer: true;"
+    <h1>BASTA YA!</h1>
+    <p>
+      Ekrem Imamoğlu sindaco di Istanbul e principale avversario politico del
+      presidente Recep Tayyip Erdoğan viene arrestato con false accuse 2 giorni
+      prima delle elezioni.
+    </p>
+    <p>
+      Assieme a lui ad oggi sono state arrestate oltre 1000 persone tra
+      politici, giornalisti e studenti.
+    </p>
+    <p style="margin-top: 3rem; margin-bottom: 3rem">
+      Questo episodio rappresenta l’ennesima ingiustizia perpetrata ai danni di
+      un Paese che da più di 20 anni è vittima di un regime autoritario che
+      sopprime i diritti del suo popolo.
+    </p>
+    <h2>Difendi la democrazia!</h2>
+    <h3>No agli autoritarismi!</h3>
+
+    <iframe
+      src="https://www.youtube.com/embed/VIDEO_ID"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
     >
-      <!--...cursor="rayOrigin:mouse"-->
-      <!--...artoolkit-->
-      <!--<a-amerker-camera>-->
-      <a-marker
-        id="marker"
-        preset="custom"
-        type="pattern"
-        url="assets/cocai_pattern_2.patt"
-      >
-        <a-box
-          id="box"
-          class="collidable"
-          material="opacity:0.2; metalness:0.2;"
-          rotation="0 0 0"
-          scale="5 5 5"
-          position="0 0.5 0"
-          color="#ffb81b"
-          animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
-        >
-          <a-box id="border" material="opacity:1; wireframe:true"> </a-box>
-        </a-box>
-        <!--
-        <a-entity
-          raycaster="objects: .collidable; showLine:true; far: 10"
-          position="0 0 0"
-          rotation="90 0 0"
-        ></a-entity>
-      -->
-      </a-marker>
-      <a-entity camera id="camera"> </a-entity>
-    </a-scene>
+    </iframe>
   </body>
 </html>
